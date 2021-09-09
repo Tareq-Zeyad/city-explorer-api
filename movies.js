@@ -9,20 +9,26 @@ function movieData(req, res) {
     axios
         .get(url)
         .then(response => {
-            let film = response.data.data.map(item => {
+            // console.log(response.data.results);
+    
+            let film = response.data.results.map(item => {
+                // console.log(item);
                 return new Movie(item);
             })
             res.send(film);
 
 
         })
-        .catch(res.send('sorry error'));
+        .catch(error => {
+            res.send('sorry error ' + error);
+        });
+
 }
 
 class Movie {
     constructor(item) {
         this.title = item.title;
-        this.image_url = `https://image.tmdb.org/t/p/w500${item.backdrop_path}`;
+        this.image_url =`https://image.tmdb.org/t/p/w500${item.poster_path}`;
         this.released_on = item.release_date;
     }
 
