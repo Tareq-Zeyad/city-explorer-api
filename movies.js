@@ -28,6 +28,9 @@ function movieData(req, res) {
 class Movie {
     constructor(item) {
         this.title = item.title;
+        this.overview = item.overview;
+        this.total_votes = item.total_votes;
+        this.popularity = item.popularity;
         this.image_url =`https://image.tmdb.org/t/p/w500${item.poster_path}`;
         this.released_on = item.release_date;
     }
