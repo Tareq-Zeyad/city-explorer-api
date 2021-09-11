@@ -4,7 +4,7 @@
 // to import the data inside weather json file.
 // const weather = require('./data/weather.json'); 
 
-// to import the express.
+// to import the express library.
 const express = require('express');
 
 // to import cors.
@@ -12,6 +12,8 @@ const cors = require('cors');
 
 // to import dotenv
 require('dotenv').config();
+
+
 
 const weatherData = require('./weather');
 const movieData = require('./movies');
