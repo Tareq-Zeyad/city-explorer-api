@@ -1,5 +1,5 @@
 'use strict';
-const movieAPI = process.env.REACT_APP_MOVIES_KEY;
+const movieAPI = process.env.MOVIES_KEY;
 const axios = require('axios');
 const { query } = require('express');
 
@@ -10,8 +10,8 @@ function movieData(req, res) {
     let search = req.query.searchQuery;
 
     // check: do I have the data ! otherwise I will hit the API
-    if (cashMemory[query] !== undefined) {
-        res.send(cashMemory[query]);
+    if (cashMemory[search] !== undefined) {
+        res.send(cashMemory[search]);
     } else {
         let url = `https://api.themoviedb.org/3/search/movie?api_key=${movieAPI}&query=${search}`;
 
@@ -36,12 +36,13 @@ function movieData(req, res) {
 }
 
 class Movie {
+    
     constructor(item) {
         this.title = item.title;
         this.overview = item.overview;
         this.total_votes = item.total_votes;
         this.popularity = item.popularity;
-        this.image_url = `https://image.tmdb.org/t/p/w500${item.poster_path}`;
+        this.image_url = item.poster_path?  `https://image.tmdb.org/t/p/w500${item.poster_path}` :"https://image.tmdb.org/t/p/w500/";
         this.released_on = item.release_date;
     }
 
