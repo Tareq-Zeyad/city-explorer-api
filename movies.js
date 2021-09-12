@@ -42,7 +42,7 @@ class Movie {
         this.overview = item.overview;
         this.total_votes = item.total_votes;
         this.popularity = item.popularity;
-        this.image_url = item.poster_path?  `https://image.tmdb.org/t/p/w500${item.poster_path}` :"https://image.tmdb.org/t/p/w500/";
+        this.image_url = item.poster_path?  `https://image.tmdb.org/t/p/w500${item.poster_path}` :"https://thearabweekly.com/sites/default/files/styles/article_image_800x450_/public/empictures/b500/_1848_62.jpg?itok=8c6744Ek";
         this.released_on = item.release_date;
     }
 
